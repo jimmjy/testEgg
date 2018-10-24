@@ -1,0 +1,27 @@
+body {
+    position: relative;
+}
+
+#egg {
+    display: none;
+}
+#canvas {
+    margin: 0 auto;
+    border: 1px solid black;
+    display: block;
+    background-image: url('./images/pan.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 0;
+}
+
+#sunside {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 500px;
+    background-image: url('./images/egg.png');
+    background-size: 100% 100%;
+}
+
