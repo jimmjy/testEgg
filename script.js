@@ -48,9 +48,12 @@
     c.beginPath();
     c.drawImage(img, 130, 200, 80, 80);
 
-    window.addEventListener('deviceorientation', (e) => {
+    window.addEventListener('deviceorientation', function (e) {
         c.clearRect(0,0,canvas.width,canvas.height);
-        c.beginPath();
-        c.drawImage(img, 130 + e.alpha, 200 + e.beta, 80, 80);
+        c.drawImage(img, 130 + e.alpha * 2, 200 + e.beta, 80, 80);
+    });
+
+    window.addEventListener('devicemotion', function (e) {
+        console.log(e);
     });
     
