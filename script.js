@@ -47,11 +47,7 @@
 
     c.beginPath();
     c.drawImage(img, 130, 200, 80, 80);
-    c.clearRect(0,0,canvas.width,canvas.height);
-    c.beginPath();
-    c.strokeStyle = 'red';
-    c.arc(160, 240, 160, 0, 2*Math.PI, false);
-    c.stroke();
+    
 
     //default to hold edge
     let currentAlpha = 0;
