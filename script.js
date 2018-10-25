@@ -1,42 +1,7 @@
-
-    // var canvas = document.getElementById('canvas');
-    // var c = canvas.getContext('2d');
-
-    // var canvasTwo = document.getElementById('sunside');
-    // var c2 = canvasTwo.getContext('2d');
-
-    // //image variable
-    // var img = document.getElementById('egg');
-
-    // //pan canvas sizing
-    // canvas.width = 480;
-    // canvas.height = 320;
-    
-    // //egg canvas sizing
-    // canvasTwo.width = 100;
-    // canvasTwo.height = 100;
-
-    // //holder variable
-    // // let initialY = ;
-
-    // //function reads orientation change, then
-    // //redraw with egg image in new location
-    // window.addEventListener('deviceorientation', (e) => {
-        
-    //     console.log(currentPosition);
-    //     if (currentPosition > e.beta) {
-    //         canvasTwo.style.top = `${canvasTwo.getBoundingClientRect().top + e.beta}px`;
-    //         console.log('positive')
-    //     } else {
-    //         canvasTwo.style.top = `${canvasTwo.getBoundingClientRect().top - e.beta}px`;
-    //         console.log('negative')
-    //     }
-    //     currentPosition = e.beta;
-    // });
-
-    //
+//setup canvas
     var canvas = document.getElementById('canvas');
     var c = canvas.getContext('2d');
+
 
     var img = new Image();
     img.src = './images/egg.png';
@@ -49,12 +14,12 @@
     c.drawImage(img, 120, 200, 80, 80);
     
 
-    //default to hold edge
+    //default holder variables to prevent egg from dropping off
     let currentGamma = 0;
     let currentBeta = 0;
 
+    //read event from device tilting axis
     window.addEventListener('deviceorientation', function (e) {
-        e.preventDefault();
         c.clearRect(0,0,canvas.width,canvas.height);
         if (e.gamma > -37 && e.gamma < 22 && e.beta < 52 && e.beta > -62) {
             currentGamma = e.gamma;
