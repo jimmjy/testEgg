@@ -47,13 +47,23 @@
 
     c.beginPath();
     c.drawImage(img, 130, 200, 80, 80);
+    c.clearRect(0,0,canvas.width,canvas.height);
+    c.beginPath();
+    c.strokeStyle = 'red';
+    c.arc(160, 240, 160, 0, 2*Math.PI, false);
+    c.stroke();
+
+    //default to hold edge
+    let currentAlpha = 0;
 
     window.addEventListener('deviceorientation', function (e) {
         c.clearRect(0,0,canvas.width,canvas.height);
-        c.drawImage(img, 130 + e.alpha * 2, 200 + e.beta, 80, 80);
+        if (e.alpha > -42 && e.alpha < 29) {
+            currentAlpha = e.alpha;
+            c.drawImage(img, 160 + e.alpha * 3, 240 + e.beta * 3, 80, 80);
+        } else {
+            c.drawImage(img, 130 + currentAlpha * 3, 200 + e.beta * 3, 80, 80);
+        }
     });
 
-    window.addEventListener('devicemotion', function (e) {
-        console.log(e);
-    });
     
