@@ -55,8 +55,10 @@
 
     //default to hold edge
     let currentAlpha = 0;
+    let currentBeta = 0;
 
     window.addEventListener('deviceorientation', function (e) {
+        e.preventDefault();
         c.clearRect(0,0,canvas.width,canvas.height);
         if (e.alpha > -42 && e.alpha < 29) {
             currentAlpha = e.alpha;
